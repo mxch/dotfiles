@@ -101,3 +101,4 @@ PATH=${PATH}:~/.scripts
 export PATH
 
 #alias ls='ls --color=auto'
+alias deepsleep='systemctl suspend -i'
