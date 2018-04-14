@@ -92,6 +92,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export EDITOR=/usr/bin/vim
+bindkey -v
+export KEYTIMEOUT=1
+bindkey '^R' history-incremental-search-backward
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[green]%} [% NORMAL]% %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}[%*]$EPS1"
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 if [ -f ~/.dir_colors/dircolors ]; then eval `dircolors ~/.dir_colors/dircolors`; fi
 #if [ -f /usr/bin/neofetch ]; then neofetch; fi
 #if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then fortune | cowsay; fi
