@@ -1,3 +1,5 @@
 [user]
 	name = mxch
 	email = mxch@users.noreply.github.com
+[core]
+	editor = vim
