@@ -1,0 +1,71 @@
+#################################
+######## Account mailbox ########
+#################################
+
+IMAPAccount accounts
+Host imap.gmail.com
+User chiang.maximilian@gmail.com
+PassCmd "pass email/chiang.maximilian@gmail.com"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore accounts-remote
+Account accounts
+
+MaildirStore accounts-local
+Path ~/.mail/chiang.maximilian-gmail.com/
+Inbox ~/.mail/chiang.maximilian-gmail.com/inbox
+
+Channel accounts-inbox
+Master :accounts-remote:
+Slave :accounts-local:
+Patterns "INBOX"
+Create Both
+SyncState *
+
+Channel accounts-drafts
+Master :accounts-remote:"[Gmail]/Drafts"
+Slave :accounts-local:"drafts"
+Create Both
+SyncState *
+
+Channel accounts-sent
+Master :accounts-remote:"[Gmail]/Sent Mail"
+Slave :accounts-local:"sent"
+Create Both
+SyncState *
+
+Channel accounts-starred
+Master :accounts-remote:"[Gmail]/Starred"
+Slave :accounts-local:"flagged"
+Create Both
+SyncState *
+
+Channel accounts-trash
+Master :accounts-remote:"[Gmail]/Trash"
+Slave :accounts-local:"trash"
+Create Both
+SyncState *
+
+Channel accounts-archive
+Master :accounts-remote:"[Gmail]/All Mail"
+Slave :accounts-local:"archive"
+Create Both
+SyncState *
+
+Group account 
+Channel accounts-inbox
+Channel accounts-drafts
+Channel accounts-sent
+Channel accounts-starred
+Channel accounts-trash
+Channel accounts-archive
+
+# Gmail mailboxes:
+# "All Mail"
+# "Drafts"
+# "Important"
+# "Sent Mail"
+# "Spam"
+# "Starred"
+# "Trash"

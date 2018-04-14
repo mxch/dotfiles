@@ -3,10 +3,13 @@
 DOTFILES_DIR="$HOME/.dotfiles"
 SETUP_DIR="${DOTFILES_DIR}/setup"
 CURR_DIR=$(pwd)
-DOTFILES=(tmux git vim)
+DOTFILES=(tmux git vim zsh dir_colors mbsync mutt notmuch scripts)
+APPS=(stow tree curl mutt mbsync)
 
-# install brew
-${SETUP_DIR}/brew.sh
+# install apps
+for app in ${APPS[@]}; do
+  sudo apt install ${app};
+done
 
 # setup dotfiles
 cd ${DOTFILES_DIR}
@@ -16,4 +19,4 @@ done
 cd ${CURR_DIR}
 
 # change default shell
-chsh -s /usr/local/bin/zsh
+chsh -s /usr/bin/zsh

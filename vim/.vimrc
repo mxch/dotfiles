@@ -2,7 +2,7 @@
 let mapleader=","       " leader is comma
 
 " colors
-set background=dark    " Setting dark mode
+set background=dark
 colorscheme gruvbox
 let &t_Co=256
 syntax enable
@@ -22,3 +22,6 @@ set showcmd
 set incsearch  " search as characters are entered
 set hlsearch  " highlight matches
 nnoremap <Leader><space> :noh<cr><esc> " reset search highlighting
+
+hi Normal ctermbg=none
+hi NonText ctermbg=none

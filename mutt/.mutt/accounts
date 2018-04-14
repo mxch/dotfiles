@@ -1,0 +1,19 @@
+set smtp_url = "smtp://chiang.maximilian@smtp.gmail.com:587"
+set smtp_pass = `pass email/chiang.maximilian@gmail.com`
+
+set folder = ~/.mail/chiang.maximilian-gmail.com/
+set spoolfile = +inbox
+set postponed = +drafts
+set trash = +trash
+set mbox = +archive
+set record = ""
+
+# Mailboxes to show in the sidebar.
+mailboxes +inbox \
+          +flagged \
+          +archive \
+          +sent \
+          +drafts \
+
+set from = "chiang.maximilian@gmail.com"
+set realname = "Max Chiang"
