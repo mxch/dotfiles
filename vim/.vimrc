@@ -3,7 +3,7 @@ let mapleader=","       " leader is comma
 
 " colors
 set background=dark
-colorscheme gruvbox
+colorscheme onedark
 let &t_Co=256
 syntax enable
 
